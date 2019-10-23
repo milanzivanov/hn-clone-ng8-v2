@@ -1,4 +1,6 @@
+import { HnService, HnInterface } from './../hn.service';
 import { Component, OnInit, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-item',
@@ -7,11 +9,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  @Input() itemID: number;
+  @Input() item: HnInterface;
 
-  constructor() { }
+  constructor(private _HnService: HnService) { }
 
   ngOnInit() {
+
   }
 
 }
