@@ -1,0 +1,10 @@
+
+<section class="stories-container">
+    <p>stories works!</p>
+    <ol>
+        <li *ngFor="let item of items; let i = index">
+            <app-item itemID="{{i + 1}}"></app-item>
+            <!-- <app-item [itemID]="items"></app-item> -->
+        </li>
+    </ol>
+</section>
