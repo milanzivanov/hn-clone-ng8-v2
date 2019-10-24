@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-// import 'rxjs/add/operator/toPromise';
 
 
 @Injectable({
@@ -17,31 +15,27 @@ export class HnService {
       this.beseUrl = 'https://hacker-news.firebaseio.com/v0';
   }
 
-  //
+  // Change HnInterface HnComments
   async fetchStories(): Promise<HnInterface[]> {
+    const ids = await fetchEx<number[]>(`${this.beseUrl}/topstories.json`);
 
-    const observable = this._http.get(`${this.beseUrl}/topstories.json`) 
-      .pipe(map(response => this.data = response as number[]));
-
-    const promise = observable.toPromise();
-
-    const ids = await promise;
-
-    const temp = ids.map(p => this.fetchItem(p));
-
+    const temp = ids.slice(0, 5).map(p => this.fetchItem(p));
     const result = Promise.all(temp);
 
     return result;
   }
 
   fetchItem(id: number): Promise<HnInterface> {
-    return this._http.get(`${this.beseUrl}/item/${id}.json`)
-    .pipe(map((response) => response as HnInterface)).toPromise();
+    // without generics
+    // const res = await fetchEx2(`${this.beseUrl}/item/${id}.json`);
+    // const data = res as HnInterface;
+    // return data;
+    
+    return fetchEx<HnInterface>(`${this.beseUrl}/item/${id}.json`);
   }
 
   fetchComment(id: number): Promise<HnComments> {
-    return this._http.get(`${this.beseUrl}/item/${id}.json`)
-    .pipe(map((response) => response as HnComments)).toPromise();
+    return fetchEx<HnComments>(`${this.beseUrl}/item/${id}.json`);
   }
 
   fetchComments(ids: number[]): Promise<HnComments[]> {
@@ -49,12 +43,29 @@ export class HnService {
     const res = Promise.all(temp);
     return res;
   }
-
 }
 
+// This is our utility function, we use generic 
+// type to anotate what is the return type from
+// the server (we assume that we are getting
+// always the json response)
+async function fetchEx<T>(address: string) {
+  const response = await fetch(address);
+  const data = await response.json() as T;
+  return data;
+}
+
+// without generics
+// async function fetchEx2(address: string) {
+//   const response = await fetch(address);
+//   const json = await response.json();
+//   const data = JSON.parse(json);
+
+//   return data;
+// }
 
 /////////////
-// interfce
+// interface
 ////////////
 export interface HnInterface {
   by: string;

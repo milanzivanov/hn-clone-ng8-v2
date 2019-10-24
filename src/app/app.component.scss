@@ -23,13 +23,13 @@ h6 {
 
     display: flex;
     justify-content: space-between;
-    background-color: aquamarine;
 
     .right {
         flex: 2;
         overflow-y: scroll;
         padding: 30px;
         margin: 10px;
+        background-color: #fff;
 
     }
 
