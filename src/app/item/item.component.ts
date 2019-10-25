@@ -1,4 +1,4 @@
-import { HnService, HnInterface } from './../hn.service';
+import { HnService, HnStories } from './../hn.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 
@@ -9,12 +9,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  @Input() item: HnInterface;
+  @Input() item: HnStories;
+  showLoader: boolean;
 
   constructor(private _HnService: HnService) { }
 
   ngOnInit() {
-
   }
 
 }

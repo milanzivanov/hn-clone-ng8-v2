@@ -15,23 +15,22 @@ export class HnService {
       this.beseUrl = 'https://hacker-news.firebaseio.com/v0';
   }
 
-  // Change HnInterface HnComments
-  async fetchStories(): Promise<HnInterface[]> {
+  async fetchStories(): Promise<HnStories[]> {
     const ids = await fetchEx<number[]>(`${this.beseUrl}/topstories.json`);
 
-    const temp = ids.slice(0, 5).map(p => this.fetchItem(p));
+    const temp = ids.slice(0, 15).map(p => this.fetchItem(p));
     const result = Promise.all(temp);
 
     return result;
   }
 
-  fetchItem(id: number): Promise<HnInterface> {
+  fetchItem(id: number): Promise<HnStories> {
     // without generics
     // const res = await fetchEx2(`${this.beseUrl}/item/${id}.json`);
     // const data = res as HnInterface;
     // return data;
     
-    return fetchEx<HnInterface>(`${this.beseUrl}/item/${id}.json`);
+    return fetchEx<HnStories>(`${this.beseUrl}/item/${id}.json`);
   }
 
   fetchComment(id: number): Promise<HnComments> {
@@ -67,7 +66,7 @@ async function fetchEx<T>(address: string) {
 /////////////
 // interface
 ////////////
-export interface HnInterface {
+export interface HnStories {
   by: string;
   descendants: number;
   id: number;

@@ -1,5 +1,18 @@
 $mobile-only: "only screen and (max-width : 768px)";
+// @media #{$mobile-only} {
+//     display: block;
+//     position: relative;
+//     margin: 45vh 0;
+// }
 
+
+.stories-container {
+    position: relative;
+}
+
+////////////////////
+// css loader
+///////////////////
 .loader {
     background: #B92B27;
     -webkit-animation: load1 1s infinite ease-in-out;
@@ -29,11 +42,9 @@ $mobile-only: "only screen and (max-width : 768px)";
     height: 70px;
     margin: 40px 0 40px 40px;
 
-@media #{$mobile-only} {
-    display: block;
-    position: relative;
-    margin: 45vh 0;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
   
 .loader {

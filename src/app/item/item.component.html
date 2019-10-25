@@ -1,55 +1,33 @@
-<section *ngIf="item">
-    <div class="item-laptop">
-        <p>
-            <a class="title" href="{{item?.url}}">
-            {{item.title}}
-            </a>
-        </p>
-        <div class="subtext-laptop">
+<!-- new -->
+<section class="item_properties">
+    <h3>
+        <a 
+            class="item_properties-title" 
+            href="{{ item?.url }}" 
+            target="_blank">
+            {{ item.title }}
+        </a>
+    </h3>
+    <div class="item_properties-points">
+        <span class="item_properties-points_border">
             {{item.score}} points by
-            <a href="">{{item.by}}</a>
-            <span>
+            <a href="#">{{item.by}}</a>
+        </span>
+        <span>
             <span *ngIf="item.descendants !== 0">
                 {{item.descendants}}
                 <span *ngIf="item.descendants === 1">comment</span>
                 <span *ngIf="item.descendants > 1">comments</span>
             </span>
             <span *ngIf="item.descendants === 0">discuss</span>
-            <!-- <span class="collapse" (click)="collapse = !collapse">[{{collapse ? '-' : '+'}}]</span> -->
-            </span>
-        </div>
-        <!-- comments -->
-        <app-comment-list 
-            [items]="item.kids" 
-            isRoot="true">
-        </app-comment-list>
+        </span>
     </div>
-    <div class="item-mobile">
-        <p>
-        <a class="title" href="{{item.url}}" target="_blank">
-            {{item.title}}
-        </a>
-        <span class="domain">{{item.url}}</span>
-        </p>
-        <div class="subtext-palm">
-        <div class="details">
-            <span class="name"> <a href="">{{item.by}}</a></span>
-            <span class="right">{{item.score}} ★</span>
-        </div>
-        <div class="details">
-        {{ item.time }}
-        <a href="" class="comment-number"> •
-            <span *ngIf="item.descendants !== 0">
-            {{item.descendants}}
-            <span *ngIf="item.descendants === 1">comment</span>
-            <span *ngIf="item.descendants > 1">comments</span>
-            </span>
-            <span *ngIf="item.descendants === 0">discuss</span>
-        </a>
-        </div>
-        </div>
-    </div>
+    <!-- comments component-->
+    <app-comment-list 
+        [items]="item.kids">
+    </app-comment-list>
 </section>
+
 
 
 

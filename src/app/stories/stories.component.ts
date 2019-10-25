@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HnService, HnInterface } from './../hn.service';
+import { HnService, HnStories } from './../hn.service';
 
 @Component({
   selector: 'app-stories',
@@ -8,11 +8,10 @@ import { HnService, HnInterface } from './../hn.service';
 })
 export class StoriesComponent implements OnInit {
 
-  items: HnInterface[];
+  items: HnStories[];
   showLoader: boolean;
 
   constructor(private _hnCloneService: HnService) {
-    // this.items = new Array(10);
   }
 
   async ngOnInit() {

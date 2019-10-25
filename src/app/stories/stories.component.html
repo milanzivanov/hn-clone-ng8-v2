@@ -1,22 +1,21 @@
-<div class="main-content">
+<div class="stories-container">
 
-        <div class="loading-section" *ngIf="showLoader">
-          <div class="loader">
-            Loading...
-          </div>
-        </div>
+  <div class="loading-section" *ngIf="showLoader">
+    <div class="loader">
+      Loading...
+    </div>
+  </div>
+
+  <ol>
+    <li *ngFor="let item of items">
+        <!-- item component -->
+        <app-item [item]="item">
+        </app-item>
+    </li>
+  </ol>
+
+</div>
       
-        <div class="stories-container">
-          <ol>
-            <li *ngFor="let item of items">
-                <!-- item component -->
-                <app-item [item]="item">
-                </app-item>
-            </li>
-          </ol>
-        </div>
-      
-      </div>
 
 
 

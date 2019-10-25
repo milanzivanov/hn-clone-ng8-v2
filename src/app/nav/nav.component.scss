@@ -1,11 +1,33 @@
+$mobile-only: "only screen and (max-width : 768px)";
 .nav {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    a {
-        font-size: 40px;
+    @media #{$mobile-only} {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .logo {
+        max-width: 50%;
+        height: auto;
+        padding: 10px;
+
+        @media #{$mobile-only} {
+            max-width: 15%;
+            height: auto;
+        }
+    }
+
+    ul {
+        li {
+            a {
+                font-size: 40px;
+                color: antiquewhite;
+            }
+
+        }
     }
 }
