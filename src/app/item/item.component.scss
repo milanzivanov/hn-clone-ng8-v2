@@ -2,7 +2,7 @@ $mobile-only: "only screen and (max-width : 768px)";
 
 .item_properties {
     padding: 10px 0;
-    border-bottom: 1px solid #c5c5c5;
+
     h3 {
         padding: 0 0 5px 0;
         .item_properties-title {
@@ -12,7 +12,7 @@ $mobile-only: "only screen and (max-width : 768px)";
 
     .item_properties-points {
         span.item_properties-points_border {
-            color: springgreen;
+            color: rgb(255, 102, 0);
             padding: 0 10px 0 0;
             border-right: 1px solid yellowgreen;
             a {
@@ -21,7 +21,7 @@ $mobile-only: "only screen and (max-width : 768px)";
         }
 
         span {
-            color: blue;
+            color: rgb(255, 102, 0);
             padding: 0 0 0 10px;
             span {
                 padding: 0;

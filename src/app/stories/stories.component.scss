@@ -1,13 +1,15 @@
 $mobile-only: "only screen and (max-width : 768px)";
-// @media #{$mobile-only} {
-//     display: block;
-//     position: relative;
-//     margin: 45vh 0;
-// }
-
 
 .stories-container {
     position: relative;
+    ol {
+        li {
+            border-bottom: 1px solid #c5c5c5;
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
 }
 
 ////////////////////
@@ -48,19 +50,19 @@ $mobile-only: "only screen and (max-width : 768px)";
 }
   
 .loader {
-color: #B92B27;
-text-indent: -9999em;
-margin: 20px 20px;
-position: relative;
-font-size: 11px;
--webkit-transform: translateZ(0);
--ms-transform: translateZ(0);
-transform: translateZ(0);
--webkit-animation-delay: -0.16s;
-animation-delay: -0.16s;
-&:after {
-    left: 1.5em;
-}
+    color: #B92B27;
+    text-indent: -9999em;
+    margin: 20px 20px;
+    position: relative;
+    font-size: 11px;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+    &:after {
+        left: 1.5em;
+    }
 
 @media #{$mobile-only} {
     margin: 20px auto;

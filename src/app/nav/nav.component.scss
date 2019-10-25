@@ -11,21 +11,21 @@ $mobile-only: "only screen and (max-width : 768px)";
     }
 
     .logo {
-        max-width: 50%;
-        height: auto;
+        height: 200px;
         padding: 10px;
 
         @media #{$mobile-only} {
-            max-width: 15%;
+            max-width: 100px;
             height: auto;
         }
     }
 
     ul {
         li {
+            list-style: none;
             a {
-                font-size: 40px;
-                color: antiquewhite;
+                font-size: 36px;
+                color: rgb(255, 102, 0);
             }
 
         }

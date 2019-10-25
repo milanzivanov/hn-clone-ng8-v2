@@ -21,7 +21,8 @@ $mobile-only: "only screen and (max-width : 768px)";
 .container {
     // max-width: 1200px;
     margin: auto;
-    height: calc(100vh - 39px);
+    // height: calc(100vh - 39px);
+    height: 100vh;
     display: flex;
 
     // mobile
@@ -35,17 +36,12 @@ $mobile-only: "only screen and (max-width : 768px)";
         padding: 15px;
         margin: 10px;
         background-color: #fff;
-
-        @media #{$mobile-only} {
-            // flex: none;
-        }
-
     }
 
     .left {
         background-color: #159957;
         background-image: linear-gradient(120deg,#155799,#159957);
-        flex: 1;
+        flex: 0;
 
         @media #{$mobile-only} {
             flex: none;
