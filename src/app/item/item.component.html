@@ -4,7 +4,8 @@
         <a 
             class="item_properties-title" 
             href="{{ item?.url }}" 
-            target="_blank">
+            target="_blank"
+            rel="noopener">
             {{ item.title }}
         </a>
     </h3>
@@ -22,9 +23,11 @@
             <span *ngIf="item.descendants === 0">discuss</span>
         </span>
     </div>
-    <!-- comments component-->
+
     <app-comment-list 
-        [items]="item.kids">
+        *ngIf="item.kids"
+        [ids]="item.kids"
+        isRoot="true">
     </app-comment-list>
 </section>
 

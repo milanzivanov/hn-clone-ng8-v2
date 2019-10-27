@@ -9,21 +9,25 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CommentListComponent implements OnInit {
 
   collapse: boolean;
-
+  @Input() isRoot: boolean;
   @Input() item: number;
-  @Input() items: number[];
+  @Input() ids: number[];
   comments: HnComments[];
 
   constructor(private _hnCloneService: HnService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.collapse = true;
+
+    if (this.isRoot) {
+      this.comments = await this._hnCloneService.fetchComments(this.ids);
+    }
   }
 
   async onCollapse() {
     this.collapse = !this.collapse;
-    if (this.comments === undefined && this.items !== undefined) {
-      this.comments = await this._hnCloneService.fetchComments(this.items);
+    if (this.comments === undefined && this.ids !== undefined) {
+      this.comments = await this._hnCloneService.fetchComments(this.ids);
     }
   }
 

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -17,10 +16,9 @@ export class HnService {
 
   async fetchStories(): Promise<HnStories[]> {
     const ids = await fetchEx<number[]>(`${this.beseUrl}/topstories.json`);
-
+    console.log(ids);
     const temp = ids.slice(0, 15).map(p => this.fetchItem(p));
     const result = Promise.all(temp);
-
     return result;
   }
 

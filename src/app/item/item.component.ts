@@ -10,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ItemComponent implements OnInit {
 
   @Input() item: HnStories;
-  // showLoader: boolean;
+  comments: HnStories[];
 
   constructor(private _HnService: HnService) { }
 

@@ -19,6 +19,7 @@ export class StoriesComponent implements OnInit {
     this.showLoader = true;
 
     this.items = await this._hnCloneService.fetchStories();
+    console.log(this.items);
 
     // loader hide
     this.showLoader = false;
